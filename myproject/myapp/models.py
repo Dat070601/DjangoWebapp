@@ -12,7 +12,7 @@ from django.db import models
 # Create your models here.
 class User(AbstractUser): #Ke thua bang user cua chinh no 
     avatar = models.ImageField(upload_to= "upload/%Y/%m")
-
+    
 class ItemBase(models.Model):
     class Meta: 
         abstract = True #Meta options abstract tao ra model truu tuong

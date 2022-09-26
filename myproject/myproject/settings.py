@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'myapp.apps.MyappConfig',
     'ckeditor',
     'ckeditor_uploader',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -87,7 +88,7 @@ DATABASES = {
         'OPTIONS':{'sql_mode': 'traditional',},
     }
 }
-AUTH_USER_MODEL = 'myapp.User'
+AUTH_USER_MODEL = 'myapp.User' #Chi dinh bien nay khi can dung user cua django de chung thuc
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -133,3 +134,6 @@ CKEDITOR_UPLOAD_PATH = 'lessons/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {'DEFAULT_PAGINATION_CLASS' : 'rest_framework.pagination.PageNumberPagination',
+                    'PAGE_SIZE' : '2'}

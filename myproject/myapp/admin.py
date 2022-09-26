@@ -4,8 +4,9 @@ import re
 from unicodedata import category
 from attr import field
 from django.contrib import admin
+from django.contrib.auth.models import Permission 
 from django import forms
-from .models import Category, Course, Lesson, HashTag
+from .models import Category, Course, Lesson, HashTag, User
 from django.utils.html import mark_safe
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from django.urls import path
@@ -43,12 +44,14 @@ class CourseAppAdminSite(admin.AdminSite):
         return[
             path("course-stats/",self.course_stats)
         ]+super().get_urls()
-admin_site = CourseAppAdminSite("mycourse") # "mycourse" la Ten cua doi tuong admin_site
+# admin_site = CourseAppAdminSite("mycourse") # "mycourse" la Ten cua doi tuong admin_site
 # Register your models here.
-# admin.site.register(Category)
-# admin.site.register(Course)
-# admin.site.register(Lesson,LessonAdmin)
+admin.site.register(Category)
+admin.site.register(Course)
+admin.site.register(Lesson,LessonAdmin)
+admin.site.register(User)
+admin.site.register(Permission)
 # Register your models here.
-admin_site.register(Category)
-admin_site.register(Course)
-admin_site.register(Lesson,LessonAdmin)
+# admin_site.register(Category)
+# admin_site.register(Course)
+# admin_site.register(Lesson,LessonAdmin)
