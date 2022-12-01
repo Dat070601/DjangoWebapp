@@ -11,7 +11,7 @@ jobs:
           command: pip freeze > requirements.txt
       - run:
           name: lint
-          command: pylint my_media/ media_organizer/
+          command: pip install pylint
       - run:
           name: run tests
           command: python manage.py test
